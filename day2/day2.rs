@@ -37,22 +37,20 @@ fn get_cubes_count(cubes_group: &str) -> (u32, u32, u32) {
         }
     }
 
-    return (red_cubes, green_cubes, blue_cubes);
+    (red_cubes, green_cubes, blue_cubes)
 }
 
 fn get_games_ids_if_valid_part_1(line: &str) -> Option<u32> {
     let mut game_id_rest_split = line.split(':');
 
     let game_id = game_id_rest_split
-        .next()
-        .unwrap()
+        .next()?
         .split_ascii_whitespace()
-        .last()
-        .unwrap()
+        .last()?
         .parse::<u32>()
         .unwrap();
 
-    for cubes_group in game_id_rest_split.next().unwrap().split(';') {
+    for cubes_group in game_id_rest_split.next()?.split(';') {
         let (red_cubes, green_cubes, blue_cubes) = get_cubes_count(cubes_group);
 
         if red_cubes > MAX_RED_CUBES {
@@ -64,7 +62,7 @@ fn get_games_ids_if_valid_part_1(line: &str) -> Option<u32> {
         }
     }
 
-    return Some(game_id);
+    Some(game_id)
 }
 
 fn get_sum_of_games_powers_part_2(line: &str) -> Option<u32> {
@@ -74,7 +72,7 @@ fn get_sum_of_games_powers_part_2(line: &str) -> Option<u32> {
     let mut max_green_cubes = 0;
     let mut max_blue_cubes = 0;
 
-    for cubes_group in game_id_rest_split.last().unwrap().split(';') {
+    for cubes_group in game_id_rest_split.last()?.split(';') {
         let (red_cubes, green_cubes, blue_cubes) = get_cubes_count(cubes_group);
 
         if red_cubes > max_red_cubes {
@@ -90,7 +88,7 @@ fn get_sum_of_games_powers_part_2(line: &str) -> Option<u32> {
         }
     }
 
-    return Some(max_red_cubes * max_green_cubes * max_blue_cubes);
+    Some(max_red_cubes * max_green_cubes * max_blue_cubes)
 }
 
 fn main() {
@@ -104,14 +102,12 @@ fn main() {
                     let get_valid_game_id_part_1_result = get_games_ids_if_valid_part_1(&line);
 
                     if get_valid_game_id_part_1_result.is_some() {
-                        sum_of_valid_game_ids_1 =
-                            sum_of_valid_game_ids_1 + get_valid_game_id_part_1_result.unwrap();
+                        sum_of_valid_game_ids_1 += get_valid_game_id_part_1_result.unwrap();
                     }
 
                     let get_valid_game_id_part_2_result = get_sum_of_games_powers_part_2(&line);
                     if get_valid_game_id_part_2_result.is_some() {
-                        sum_of_valid_game_ids_2 =
-                            sum_of_valid_game_ids_2 + get_valid_game_id_part_2_result.unwrap();
+                        sum_of_valid_game_ids_2 += get_valid_game_id_part_2_result.unwrap();
                     }
                 }
                 _ => panic!("Malformed file"),

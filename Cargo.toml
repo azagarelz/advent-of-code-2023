@@ -9,9 +9,13 @@ edition = "2021"
 
 [[bin]]
 name = "day1"
-path = "day1/main.rs"
+path = "day1/day1.rs"
+
+[[bin]]
+name = "day1_trie"
+path = "day1/day1_trie.rs"
 
 
 [[bin]]
 name = "day2"
-path = "day2/main.rs"
+path = "day2/day2.rs"

@@ -16,9 +16,9 @@ fn calculate_calibration_value_part_1(line: &str) -> u32 {
         .filter_map(|x| x.to_digit(10))
         .collect::<Vec<_>>();
 
-    return format!("{}{}", numbers.first().unwrap(), numbers.last().unwrap())
+    format!("{}{}", numbers.first().unwrap(), numbers.last().unwrap())
         .parse::<u32>()
-        .unwrap();
+        .unwrap()
 }
 
 fn calculate_calibration_value_part_2(line: &str) -> u32 {
@@ -32,7 +32,7 @@ fn calculate_calibration_value_part_2(line: &str) -> u32 {
         .replace("seven", "seven7seven")
         .replace("eight", "eight8eight")
         .replace("nine", "nine9nine");
-    return calculate_calibration_value_part_1(&line_with_replace);
+    calculate_calibration_value_part_1(&line_with_replace)
 }
 
 fn main() {
@@ -43,11 +43,11 @@ fn main() {
         for line in lines {
             match line {
                 Ok(line) => {
-                    sum_of_calibration_value_part_1 =
-                        sum_of_calibration_value_part_1 + calculate_calibration_value_part_1(&line);
+                    sum_of_calibration_value_part_1 +=
+                        calculate_calibration_value_part_1(&line);
 
-                    sum_of_calibration_value_part_2 =
-                        sum_of_calibration_value_part_2 + calculate_calibration_value_part_2(&line);
+                    sum_of_calibration_value_part_2 +=
+                        calculate_calibration_value_part_2(&line);
                 }
                 _ => panic!("Malformed file"),
             }
