@@ -10,18 +10,18 @@ where
     Ok(io::BufReader::new(file).lines())
 }
 
-fn calculate_calibration_value_part_1(line: &str) -> i32 {
+fn calculate_calibration_value_part_1(line: &str) -> u32 {
     let numbers = line
         .chars()
         .filter_map(|x| x.to_digit(10))
         .collect::<Vec<_>>();
 
     return format!("{}{}", numbers.first().unwrap(), numbers.last().unwrap())
-        .parse::<i32>()
+        .parse::<u32>()
         .unwrap();
 }
 
-fn calculate_calibration_value_part_2(line: &str) -> i32 {
+fn calculate_calibration_value_part_2(line: &str) -> u32 {
     let line_with_replace = line
         .replace("one", "one1one")
         .replace("two", "two2two")
@@ -36,7 +36,7 @@ fn calculate_calibration_value_part_2(line: &str) -> i32 {
 }
 
 fn main() {
-    if let Ok(lines) = read_lines("src/input") {
+    if let Ok(lines) = read_lines("input.txt") {
         let mut sum_of_calibration_value_part_1 = 0;
         let mut sum_of_calibration_value_part_2 = 0;
 
@@ -53,7 +53,7 @@ fn main() {
             }
         }
 
-        println!("{}", sum_of_calibration_value_part_1);
-        println!("{}", sum_of_calibration_value_part_2);
+        println!("part 1: {}", sum_of_calibration_value_part_1);
+        println!("part 2: {}", sum_of_calibration_value_part_2);
     }
 }
