@@ -15,7 +15,14 @@ path = "day1/day1.rs"
 name = "day1_trie"
 path = "day1/day1_trie.rs"
 
+[[bin]]
+name = "day1_no_replace"
+path = "day1/day1_no_replace.rs"
 
 [[bin]]
 name = "day2"
 path = "day2/day2.rs"
+
+[[bin]]
+name = "day3"
+path = "day3/day3.rs"

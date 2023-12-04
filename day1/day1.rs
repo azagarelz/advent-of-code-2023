@@ -23,15 +23,15 @@ fn calculate_calibration_value_part_1(line: &str) -> u32 {
 
 fn calculate_calibration_value_part_2(line: &str) -> u32 {
     let line_with_replace = line
-        .replace("one", "one1one")
-        .replace("two", "two2two")
-        .replace("three", "three3three")
-        .replace("four", "four4four")
-        .replace("five", "five5five")
-        .replace("six", "six6six")
-        .replace("seven", "seven7seven")
-        .replace("eight", "eight8eight")
-        .replace("nine", "nine9nine");
+        .replace("one", "o1e")
+        .replace("two", "t2o")
+        .replace("three", "t3e")
+        .replace("four", "f4r")
+        .replace("five", "f5e")
+        .replace("six", "s6x")
+        .replace("seven", "s7n")
+        .replace("eight", "e8t")
+        .replace("nine", "n9e");
     calculate_calibration_value_part_1(&line_with_replace)
 }
 
@@ -43,11 +43,8 @@ fn main() {
         for line in lines {
             match line {
                 Ok(line) => {
-                    sum_of_calibration_value_part_1 +=
-                        calculate_calibration_value_part_1(&line);
-
-                    sum_of_calibration_value_part_2 +=
-                        calculate_calibration_value_part_2(&line);
+                    sum_of_calibration_value_part_1 += calculate_calibration_value_part_1(&line);
+                    sum_of_calibration_value_part_2 += calculate_calibration_value_part_2(&line);
                 }
                 _ => panic!("Malformed file"),
             }
