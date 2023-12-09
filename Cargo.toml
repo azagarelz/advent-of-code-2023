@@ -48,5 +48,5 @@ name = "day8"
 path = "day8/day8.rs"
 
 [[bin]]
-name = "day8_bad"
-path = "day8/day8_bad.rs"
+name = "day9"
+path = "day9/day9.rs"
