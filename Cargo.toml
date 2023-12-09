@@ -26,3 +26,27 @@ path = "day2/day2.rs"
 [[bin]]
 name = "day3"
 path = "day3/day3.rs"
+
+[[bin]]
+name = "day4"
+path = "day4/day4.rs"
+
+[[bin]]
+name = "day5"
+path = "day5/day5.rs"
+
+[[bin]]
+name = "day6"
+path = "day6/day6.rs"
+
+[[bin]]
+name = "day7"
+path = "day7/day7.rs"
+
+[[bin]]
+name = "day8"
+path = "day8/day8.rs"
+
+[[bin]]
+name = "day8_bad"
+path = "day8/day8_bad.rs"
